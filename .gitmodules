@@ -1,0 +1,3 @@
+[submodule "osmobom-bb"]
+	path = osmobom-bb
+	url = git://git.osmocom.org/osmocom-bb.git
