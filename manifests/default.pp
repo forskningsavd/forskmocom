@@ -18,6 +18,9 @@ class base {
     ensure => latest,
     require => Exec['addgnuarmrepo'],
   }
+  exec { '/bin/mkdir -p /home/vagrant/.osmocom/bb && ln -sf /vagrant/mobile.cfg /home/vagrant/.osmocom/bb/mobile.cfg' :
+    alias => 'mobilecfg'
+  }
 }
 
 include base
