@@ -2,6 +2,9 @@ class base {
   group { 'puppet':
     ensure => present,
   }
+  file { '/home/vagrant/.bashrc':
+    content => 'export PATH=$PATH:/vagrant/bin'
+  }
   exec { '/usr/bin/apt-get update':
     alias => "aptgetupdate",
   }
