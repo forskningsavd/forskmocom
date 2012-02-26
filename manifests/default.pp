@@ -3,7 +3,9 @@ class base {
     ensure => present,
   }
   file { '/home/vagrant/.bashrc':
-    content => 'export PATH=$PATH:/vagrant/bin'
+    content => 'export PATH=$PATH:/vagrant/bin',
+    owner => 'vagrant',
+    group => 'vagrant',
   }
   exec { '/usr/bin/apt-get update':
     alias => "aptgetupdate",
@@ -21,8 +23,21 @@ class base {
     ensure => latest,
     require => Exec['addgnuarmrepo'],
   }
-  exec { '/bin/mkdir -p /home/vagrant/.osmocom/bb && ln -sf /vagrant/mobile.cfg /home/vagrant/.osmocom/bb/mobile.cfg' :
-    alias => 'mobilecfg'
+  file { '/home/vagrant/.osmocom':
+    ensure => directory,
+    owner => 'vagrant',
+    group => 'vagrant',
+  }
+  file { '/home/vagrant/.osmocom/bb':
+    ensure => directory,
+    owner => 'vagrant',
+    group => 'vagrant',
+  }
+  file { '/home/vagrant/.osmocom/bb/mobile.cfg':
+    ensure => link,
+    target => '/vagrant/mobile.cfg',
+    owner => 'vagrant',
+    group => 'vagrant',
   }
 }
 
