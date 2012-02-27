@@ -6,20 +6,23 @@ This environment should work equally well on Windows, Linux and OS X. The virtua
 
 ## Getting started
 
-**Prerequisites:** [git](http://git-scm.com/), [Vagrant](http://vagrantup.com/).
+### Prerequisites
 
-**Get the source:**
+* [git](http://git-scm.com/)
+* [Vagrant](http://vagrantup.com/)
+
+### Get the source
 
     git clone git@github.com:forskningsavd/forskmocom.git
     cd forskmocom
     git submodule init
     git submodule update
 
-**Set up virtual machine:**
+### Set up virtual machine
 
     vagrant up
 
-**Enable USB in VirtualBox:**
+### Enable USB in VirtualBox
 
     vagrant halt
 
@@ -27,13 +30,13 @@ Launch VirtualBox and edit the settings for the `forskmocom_*` virtual machine t
 
     vagrant up
 
-**Build OsmocomBB:**
+### Build OsmocomBB
 
     vagrant ssh
     cd /vagrant/osmobom-bb/src
     make
 
-**Run `hello_world`:**
+### Run `hello_world`
 
 Remove the battery and put it back, connect the phone to your computer with an appropriate [cable](http://bb.osmocom.org/trac/wiki/Hardware/SerialCable). Upload `hello_world` to the phone (`c123xor` and `compal_e88` depends on your phone model):
 
@@ -45,7 +48,7 @@ Press the power-on button on the phone briefly to start the actual upload. If ev
 
 ## Troubleshooting
 
-#### `Cannot open serial device /dev/ttyUSB0` when running `osmocon`
+### `Cannot open serial device /dev/ttyUSB0` when running `osmocon`
 
 You haven't [enabled USB](http://www.virtualbox.org/manual/ch03.html#idp11188688) in VirtualBox or you haven't connected the USB cable.
 
